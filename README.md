@@ -37,7 +37,7 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/{{GITHUB_USER}}/312-study-workbench.git
+git clone https://github.com/origin-july/312-study-workbench.git
 cd 312-study-workbench
 python3 -m http.server 8779
 # 浏览器打开 http://127.0.0.1:8779
