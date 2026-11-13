@@ -4,6 +4,8 @@
 
 数据全部存在浏览器本地，不联网也能用，不需要注册、不需要后端。
 
+[在线演示](https://origin-july.github.io/312-study-workbench/)
+
 ![首页打卡](docs/screenshots/home.png)
 
 ---
