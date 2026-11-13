@@ -1,0 +1,27 @@
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 本地临时文件
+*.log
+*.tmp
+*~
+
+# 测试截图（生成物，不进版本库）
+shot-*.png
+_*.js
+
+# 个人备份文件
+backup*.json
+export*.json

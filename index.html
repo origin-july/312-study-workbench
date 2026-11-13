@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4f3ef">
+<meta name="description" content="312 心理学考研学习工作台：打卡、题库、FSRS 间隔复习、笔记与思维导图">
+<title>312 学习工作台</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://oapi.dingtalk.com https://qyapi.weixin.qq.com https://open.feishu.cn https://www.pushplus.plus https://api.day.app; base-uri 'none'; form-action 'none'; object-src 'none'">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kalam:wght@400;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/jsmind.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">312 工作台</div>
+  <nav class="top" id="topnav" aria-label="主导航">
+    <button data-scr="home" class="on" aria-selected="true">首页 · 打卡</button>
+    <button data-scr="bank" aria-selected="false">题库</button>
+    <button data-scr="catalog" aria-selected="false">目录</button>
+    <button data-scr="study" aria-selected="false">学习</button>
+    <button data-scr="review" aria-selected="false">错题与复盘</button>
+    <button data-scr="mine" aria-selected="false">我的</button>
+  </nav>
+  <div class="hd-right" id="hdinfo"></div>
+</header>
+
+<main>
+  <section class="scr on" id="s-home" aria-label="首页打卡"></section>
+  <section class="scr" id="s-bank" aria-label="题库"></section>
+  <section class="scr" id="s-catalog" aria-label="目录与计划"></section>
+  <section class="scr" id="s-study" aria-label="学习"></section>
+  <section class="scr" id="s-review" aria-label="错题与复盘"></section>
+  <section class="scr" id="s-mine" aria-label="我的"></section>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="vendor/ts-fsrs.umd.js"></script>
+<script src="vendor/jsmind.js"></script>
+<script src="vendor/jsmind.screenshot.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

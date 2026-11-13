@@ -1,0 +1,39 @@
+name: 检查
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  check:
+    name: 门禁检查
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 检查 JS 语法
+        run: |
+          fail=0
+          for f in app.js selftest.js vendor/*.js; do
+            node --check "$f" 2>/dev/null || echo "⚠ $f 无法用 node 校验（可能是压缩库）"
+          done
+          node --check app.js || exit 1
+          node --check selftest.js || exit 1
+          echo "✅ app.js / selftest.js 语法正常"
+
+      - name: 检查 JSON 数据完整性
+        run: python3 tools/qa.py
+
+      - name: 检查资源引用
+        run: |
+          fail=0
+          grep -o 'src="[^"]*"\|href="[^"]*"' index.html | sed 's/.*="//;s/"//' | grep -v '^http' | while read f; do
+            [ -f "$f" ] || { echo "❌ 引用缺失: $f"; fail=1; }
+          done
+          echo "✅ 资源引用检查完成"

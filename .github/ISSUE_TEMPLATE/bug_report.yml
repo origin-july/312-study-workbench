@@ -1,0 +1,86 @@
+name: Bug 反馈
+description: 报告一个可以复现的问题
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        复现步骤写得越具体，修得越快。
+        微信 / QQ 内置浏览器打不开是已知情况，不用报。
+
+  - type: dropdown
+    id: page
+    attributes:
+      label: 哪个页面
+      options:
+        - 首页 · 打卡
+        - 题库
+        - 目录
+        - 学习
+        - 错题与复盘
+        - 我的
+        - 启动就白屏
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 实际发生了什么
+      placeholder: 点「记下」写今日一句话，提示保存成功但刷新后没了
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你期望什么
+      placeholder: 刷新后这句话还在
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. python -m http.server 8779 起服务
+        2. 打开 http://127.0.0.1:8779
+        3. 首页写一句话，点「记下」
+        4. F5 刷新
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器与版本
+      placeholder: Chrome 131 / Edge 131 / Firefox 133
+    validations:
+      required: true
+
+  - type: dropdown
+    id: server
+    attributes:
+      label: 怎么打开的
+      options:
+        - python -m http.server 起服务
+        - 其他本地服务器
+        - 双击 index.html（题库会读不到，这是预期行为）
+    validations:
+      required: true
+
+  - type: textarea
+    id: console
+    attributes:
+      label: 控制台报错
+      description: F12 → Console，贴红色部分。没有就留空
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 已确认
+      options:
+        - label: 跑过 python3 tools/qa.py，结果是「门禁通过」
+        - label: 试过「我的 → 导出备份」，确认数据确实存在
